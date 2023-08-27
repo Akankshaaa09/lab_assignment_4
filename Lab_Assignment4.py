@@ -73,7 +73,7 @@ while ch=="y" or ch=="Y":
         between_cities_flights = flight_table.search_between_cities(city1, city2)
         display_flight_list(between_cities_flights)
     else:
-        print("Invalid choice.")
+        print("Invalid Choice.")
     ch=input("Do you wish to continue?(Y/N): ")
     if ch=="N" or ch=="n":
         print("Thank you!")
