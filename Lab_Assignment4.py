@@ -1,11 +1,11 @@
-class Flight:
+class Flight_search:
     def __init__(self, f_id, source, destination, price):
         self.f_id = f_id
         self.source = source
         self.destination = destination
         self.price = price
 
-class table:
+class flight_table:
     def __init__(self):
         self.flights = []
 
@@ -26,7 +26,7 @@ class table:
 
 def display_flight_list(flights):
     if not flights:
-        print("No flights found.")
+        print("No flights were found.")
         return
 
     print("{:<10} {:<6} {:<6} {:<10}".format("Flight ID", "From", "To", "Price"))
@@ -34,7 +34,7 @@ def display_flight_list(flights):
         print("{:<10} {:<6} {:<6} {:<10}".format(flight.f_id, flight.source, flight.destination, flight.price))
 
 # Creating flight objects
-data = [
+add_data = [
     ("AI161E90", "BLR", "BOM", 5600),
     ("BR161F91", "BOM", "BBI", 6750),
     ("AI161F99", "BBI", "BLR", 8210),
@@ -43,10 +43,10 @@ data = [
     ("AI131F49", "HYD", "BOM", 3499)
 ]
 
-flights = [Flight(*data) for data in data]
+flights = [Flight_search(*data) for data in add_data]
 
 
-flight_table = table()
+flight_table = flight_table()
 for i in flights:
     flight_table.add(i)
 
@@ -73,7 +73,7 @@ while ch=="y" or ch=="Y":
         between_cities_flights = flight_table.search_between_cities(city1, city2)
         display_flight_list(between_cities_flights)
     else:
-        print("Invalid Choice.")
+        print("Invalid choice.")
     ch=input("Do you wish to continue?(Y/N): ")
     if ch=="N" or ch=="n":
         print("Thank you!")
